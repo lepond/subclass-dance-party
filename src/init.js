@@ -16,7 +16,7 @@ $(document).ready(function(){
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
-
+    
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
     var gifArray = ['carlton.gif', 'pumpgirl.gif', 'snoopdog.gif', 'beyonce.gif'];
@@ -27,7 +27,20 @@ $(document).ready(function(){
       $("body").width() * Math.random(),
       Math.random() * 1000, 'Assets/' + gifArray[Math.ceil(Math.random()*gifArray.length-1)]
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
-  });
-});
 
+  });
+
+  $(".invokeMethodButton").on("click", function(event) {
+    var invokeMethodName = $(this).data("invoke-method-name");
+    var invokeMethod = Dancer.prototype[invokeMethodName];
+
+    
+    for (var i = 0; i < window.dancers.length; i++) {
+      invokeMethod.call(window.dancers[i]);
+    }
+    
+  });
+
+});
