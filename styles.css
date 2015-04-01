@@ -1,6 +1,6 @@
 body, html{
   height:100%;
-  background-image: url(Assets/background.jpg);
+  background-image: url(http://lawsoneventrentals.com/wp-content/uploads/2013/04/LED-Light-Up-Dance-Floor.jpg);
   background-repeat: no-repeat;
   background-position: center; 
 }
@@ -18,6 +18,17 @@ body, a:link, a:visited, a:active{
 a:hover {
   color: white;
   text-decoration: underline;
+}
+
+.disabled {
+  float: right;
+  padding:5px 12px;
+}
+
+.disabled a:link, a:active {
+  color: black;
+  text-decoration: none;
+
 }
 .title, .addDancerButton, .invokeMethodButton{
   padding:5px 12px;
@@ -43,4 +54,21 @@ a:hover {
 
 .lineUp {
   left: 30px;
+}
+
+.mouseDancer, .mouseDancerHover {
+  position:absolute;
+}
+
+.mouseDancerHover {
+  border-color: green;
+  border-width: 10px;
+}
+
+.mouseDancer img {
+  height: 50px;
+}
+
+.mouseDancerHover img {
+  height: 150px;
 }

@@ -16,14 +16,15 @@ PsyDancer.prototype.step = function(){
   var randBlue = Math.ceil(Math.random() * 255);
 
 
-  var randWidth = Math.ceil(Math.random() * 50);
-  var randHeight = Math.ceil(Math.random() * 50);
+  var randWidth = Math.ceil(Math.random() * 70);
+  var randHeight = Math.ceil(Math.random() * 70);
 
   var styles = {
     'background-color' : "rgb("+ randRed + ',' + randGreen + ',' + randBlue + ')',
     'border-color' : "rgb("+ randRed + ',' + randGreen + ',' + randBlue + ')',
     width: randWidth+"px",
-    height: randHeight+"px"
+    height: randHeight+"px",
+    opacity: 0.5
   };
 
   this.$node.css(styles);

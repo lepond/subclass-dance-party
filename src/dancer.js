@@ -37,13 +37,16 @@ Dancer.prototype.setPosition = function(top, left) {
 };
 
 Dancer.prototype.lineUp = function() {
-
-  if (this.left !== 20) {
-  //this.$node.addClass('.lineUp');
-    this.oldLeft = this.left;
-    this.setPosition(this.top, 20);
-  } else {
-    this.setPosition(this.top, this.oldLeft);
+  var hasRun = false;
+  if (!hasRun) {
+    this.oldTop = this.top;
+    this.setPosition(300, this.left);
+    hasRun = true;
+    var context = this;
+    setTimeout(function () {
+      context.setPosition(context.oldTop, context.left);
+      hasRun = false;
+    }, 5000);
   }
 };
 

@@ -19,16 +19,23 @@ $(document).ready(function(){
     
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
-    var gifArray = ['carlton.gif', 'pumpgirl.gif', 'snoopdog.gif', 'beyonce.gif'];
+    var gifArray = ['pumpgirl.gif', 'snoopdog.gif', 'beyonce.gif'];
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
+      ($("body").height() * Math.random())+25,
       $("body").width() * Math.random(),
       Math.random() * 1000, 'Assets/' + gifArray[Math.ceil(Math.random()*gifArray.length-1)]
     );
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
+
+    if (dancer instanceof MouseDancer) {
+      $('.mouseDancer').on('mouseenter', function() {
+        dancer.mouseOver();
+      });
+    }
+
 
   });
 
@@ -42,5 +49,4 @@ $(document).ready(function(){
     }
     
   });
-
 });
